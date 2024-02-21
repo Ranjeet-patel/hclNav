@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 57px;
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: rgb(157, 157, 159);
+        }
+
+        .logo {
+            width: 10%;
+            display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;
+        }
+
+        .button {
+            width: 10%;
+            display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;
+        box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+
+        }
+        .corner{
+            width: 4%;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2)
+        }
+
+        .navItems {
+            width: 75%;
+            overflow-x: hidden;
+            white-space: nowrap;
+            display: flex;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: transparent transparent; /* Firefox */
+            align-items: center;
+            
+        }
+
+        .navItems:hover {
+            overflow-x: auto;
+            scrollbar-color: auto auto; /* Firefox */
+        }
+
+        a {
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                logo
+            </div>
+            <div class="button">
+                button
+            </div>
+            <div class="navItems" id="navItems">
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+
+                <a href="#">home</a>
+                <a href="#">home</a>
+                <a href="#">home</a>
+
+
+                <a href="#">home</a>
+                
+                <!-- ... (other anchor tags) ... -->
+            </div>
+            <div class="corner">
+
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const navItems = document.getElementById('navItems');
+        const SCROLL_SPEED = 1; // Adjust the scrolling speed
+        let isScrollingLeft = false;
+        let isScrollingRight = false;
+
+        navItems.addEventListener('mouseenter', () => {
+            navItems.style.overflowX = 'auto';
+        });
+
+        navItems.addEventListener('mouseleave', () => {
+            navItems.style.overflowX = 'hidden';
+            isScrollingLeft = false;
+            isScrollingRight = false;
+        });
+
+        navItems.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            navItems.scrollLeft += event.deltaY;
+        });
+
+        navItems.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+            const navItemsRect = navItems.getBoundingClientRect();
+
+            if (mouseX < navItemsRect.left + 50 && mouseY < navItemsRect.top + 50) {
+                isScrollingLeft = true;
+                isScrollingRight = false;
+            } else if (mouseX > navItemsRect.right - 50 && mouseY > navItemsRect.bottom - 50) {
+                isScrollingRight = true;
+                isScrollingLeft = false;
+            } else {
+                // Reset scrolling flags when the mouse is not inside the navItems
+                isScrollingLeft = false;
+                isScrollingRight = false;
+            }
+        });
+
+        function autoScroll() {
+            if (isScrollingLeft) {
+                navItems.scrollLeft -= SCROLL_SPEED;
+            } else if (isScrollingRight) {
+                navItems.scrollLeft += SCROLL_SPEED;
+            }
+
+            requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
+    </script>
+</body>
+</html>
