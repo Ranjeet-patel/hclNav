@@ -1,0 +1,163 @@
+body{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-size: large;
+
+}
+::-webkit-scrollbar{
+    height: 12px;
+    display: none;
+    border-radius: 100vw;
+    margin-block: .5em;
+}
+::-webkit-scrollbar-track{
+    background: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb{
+    border: .25em solid white;
+    border-radius: 100vw;
+    background: rgb(101, 180, 226);
+}
+
+
+.container {
+    width: 100%;
+    height: 57px;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color:#FFFFFF;
+    color: black;
+    position: fixed;
+}
+
+.logo {
+    width: 10%;
+    display: flex;
+justify-content: center; /* Center horizontally */
+align-items: center;
+}
+
+.button {
+    width: 10%;
+    display: flex;
+justify-content: center; /* Center horizontally */
+align-items: center;
+box-shadow: 13px 0px 15px -15px rgba(0,0,0,0.38);
+
+}
+.corner{
+    width: 1%;
+    box-shadow: -13px 0px 15px -15px rgba(0,0,0,0.38);
+    padding: 20px; /* Just for demonstration, you can adjust styles based on your design */
+    background-color: #fff;
+}
+
+.navItems {
+    width: 80%;
+    overflow-x: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+a {
+    color: rgb(107, 107, 107);
+    padding:17px  50px;
+    border-right: 0.5px solid rgb(201, 201, 201);
+    text-decoration: none;
+    
+}
+a {
+    position: relative;
+  }
+  
+  a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      background-color: #86acc1;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .3s ease-in-out;
+    }
+  
+  a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+.headerContainer {
+    width:100vw; /* Set a fixed width for the container */
+    height: 300px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 57px;
+    transition: all 1.5s ease-in-out;
+}
+.clickBtn{
+    /* transition: all 1.5s ease-in-out; */
+    max-height: 200px;
+    opacity: 1;
+}
+
+
+
+.items {
+    background-image: url('./jr-korpa-9XngoIpxcEo-unsplash.jpg');
+    background-size: 100% 90%;
+    background-repeat: no-repeat;/* You can use 'cover', 'contain', or specific values like '100px 100px' */
+    
+    width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    /* border-right: 1px solid black; */
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Make the parent relative for absolute positioning */
+}
+
+.items:hover {
+    cursor: pointer;
+    z-index: 999;
+    /* font-weight: bold ; */
+   background-size: 120% 120%;
+    box-shadow:-6px 10px 38px 0px rgba(0,0,0,0.75), 6px 10px 38px 0px rgba(0,0,0,0.75);;
+    transition: background-size 1s ease;
+}
+
+.itemContent {
+    font-size: large;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(237, 227, 227);
+    width: 100%;
+    height: 40px;
+    color: rgb(57, 57, 57); /* Take full width of .items */
+}
+
+
+/* Optional: Style for scrollbar in Firefox */
+.navigation{
+    position: relative;
+}
+
